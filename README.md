@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -10,3 +11,7 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
+# Shopingo-Ecommerce
+Shopingo-Ecommerce is a full-featured React + Redux front-end for a modern shopping platform. Built with Redux-Saga, reusable components and responsive design, it’s ready to integrate with a secure backend and payment APIs currently under development.
+>>>>>>> b2680485687cd0d501296aab815f91fe26e2567c
