@@ -9,7 +9,7 @@ import 'datatables.net';
 import SideBar from '../../../components/SideBar'
 
 import { getmaincategory, deletemaincategory } from "../../../Redux/ActionCreators/maincategoryActionCreators"
-export default function AdminmaincategoryPage() {
+export default function AdminMaincategoryPage() {
     let maincategoryStateData = useSelector(state => state.maincategoryStateData)
     let dispatch = useDispatch()
 
