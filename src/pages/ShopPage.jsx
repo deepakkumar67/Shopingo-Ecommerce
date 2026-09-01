@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Breadcrum from '../components/Breadcrum'
 
-import { getMaincategory } from "../Redux/ActionCreators/MaincategoryActionCreators"
+import { getmaincategory } from "../Redux/ActionCreators/maincategoryActionCreators"
 import { getSubcategory } from "../Redux/ActionCreators/SubcategoryActionCreators"
 import { getBrand } from "../Redux/ActionCreators/BrandActionCreators"
 import { getProduct } from "../Redux/ActionCreators/ProductActionCreators"
@@ -14,7 +14,7 @@ export default function ShopPage() {
     let [SortFilter, setSortFilter] = useState("1")
     let [product, setProduct] = useState([])
 
-    let [selectedMaincategory, setSelectedMaincategory] = useState([])
+    let [selectedmaincategory, setSelectedmaincategory] = useState([])
     let [selectedSubcategory, setSelectedSubcategory] = useState([])
     let [selectedBrand, setSelectedBrand] = useState([])
 
@@ -28,7 +28,7 @@ export default function ShopPage() {
     let [min, setMin] = useState(0)
     let [max, setMax] = useState(1000)
 
-    let MaincategoryStateData = useSelector(state => state.MaincategoryStateData)
+    let maincategoryStateData = useSelector(state => state.maincategoryStateData)
     let SubcategoryStateData = useSelector(state => state.SubcategoryStateData)
     let BrandStateData = useSelector(state => state.BrandStateData)
     let ProductStateData = useSelector(state => state.ProductStateData)
@@ -103,7 +103,7 @@ export default function ShopPage() {
     }
     function selectedCollection(collection) {
         if (collection === "maincategory")
-            return selectedMaincategory
+            return selectedmaincategory
         else if (collection === "subcategory")
             return selectedSubcategory
         else if (collection === "brand")
@@ -123,33 +123,33 @@ export default function ShopPage() {
             data?.push(value)
         setFlag(!flag)
         if (collection === "maincategory") {
-            setSelectedMaincategory(data)
+            setSelectedmaincategory(data)
             applyFilter(data, selectedSubcategory, selectedBrand, selectedColor, selectedSize)
         }
         else if (collection === "subcategory") {
             setSelectedSubcategory(data)
-            applyFilter(selectedMaincategory, data, selectedBrand, selectedColor, selectedSize)
+            applyFilter(selectedmaincategory, data, selectedBrand, selectedColor, selectedSize)
         }
         else if (collection === "brand") {
             setSelectedBrand(data)
-            applyFilter(selectedMaincategory, selectedSubcategory, data, selectedColor, selectedSize)
+            applyFilter(selectedmaincategory, selectedSubcategory, data, selectedColor, selectedSize)
         }
         else if (collection === "color") {
             setSelectedColor(data)
-            applyFilter(selectedMaincategory, selectedSubcategory, selectedBrand, data, selectedSize)
+            applyFilter(selectedmaincategory, selectedSubcategory, selectedBrand, data, selectedSize)
         }
         else if (collection === "size") {
             setSelectedSize(data)
-            applyFilter(selectedMaincategory, selectedSubcategory, selectedBrand, selectedColor, data)
+            applyFilter(selectedmaincategory, selectedSubcategory, selectedBrand, selectedColor, data)
         }
 
     }
 
     useEffect(() => {
         (() => {
-            dispatch(getMaincategory())
+            dispatch(getmaincategory())
         })()
-    }, [MaincategoryStateData.length])
+    }, [maincategoryStateData.length])
 
     useEffect(() => {
         (() => {
@@ -172,7 +172,7 @@ export default function ShopPage() {
             // let color = searchParams.get("color") ? [searchParams.get("color")] : []
             // let size = searchParams.get("size") ? [searchParams.get("size")] : []
 
-            setSelectedMaincategory(mc)
+            setSelectedmaincategory(mc)
             setSelectedSubcategory(sc)
             setSelectedBrand(br)
             // setSelectedColor(color)
@@ -204,13 +204,13 @@ export default function ShopPage() {
                                                         <h5 className="mb-0 fw-bold">Filters</h5>
                                                     </div>
                                                     <div className="card-body">
-                                                        <h6 className="p-1 fw-bold bg-light">Maincategory</h6>
+                                                        <h6 className="p-1 fw-bold bg-light">maincategory</h6>
                                                         <div className="categories">
                                                             <div className="categories-wrapper height-1 p-1">
                                                                 {
-                                                                    MaincategoryStateData.filter(x => x.active).map(item => {
+                                                                    maincategoryStateData.filter(x => x.active).map(item => {
                                                                         return <div className="form-check" key={item.id}>
-                                                                            <input className="form-check-input" type="checkbox" id={`${item.name}`} checked={selectedMaincategory.includes(item.name)} onChange={() => filter("maincategory", item.name)} />
+                                                                            <input className="form-check-input" type="checkbox" id={`${item.name}`} checked={selectedmaincategory.includes(item.name)} onChange={() => filter("maincategory", item.name)} />
                                                                             <label className="form-check-label" htmlFor={`${item.name}`} >
                                                                                 <span>{item.name} </span>
                                                                             </label>
@@ -259,7 +259,7 @@ export default function ShopPage() {
                                                                     <input type="text" className="form-control rounded-0" placeholder="Min. Amount" value={min} name='min' onChange={(e) => setMin(e.target.value)} />
                                                                     <span className="input-group-text bg-section-1 border-0">-</span>
                                                                     <input type="text" className="form-control rounded-0" placeholder="Max. Amount" value={max} name='max' onChange={(e) => setMax(e.target.value)} />
-                                                                    <button type="button" className="btn btn-outline-dark rounded-0 ms-2" onClick={() => applyFilter(selectedMaincategory, selectedSubcategory, selectedBrand, selectedColor, selectedSize, min, max)}><i className="bi bi-chevron-right"></i></button>
+                                                                    <button type="button" className="btn btn-outline-dark rounded-0 ms-2" onClick={() => applyFilter(selectedmaincategory, selectedSubcategory, selectedBrand, selectedColor, selectedSize, min, max)}><i className="bi bi-chevron-right"></i></button>
                                                                 </div>
                                                             </div>
                                                         </div>

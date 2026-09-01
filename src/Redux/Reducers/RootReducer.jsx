@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import MaincategoryReducer from "./MaincategoryReducer";
+import maincategoryReducer from "./maincategoryReducer";
 import SubcategoryReducer from "./SubcategoryReducer";
 import BrandReducer from "./BrandReducer";
 import ProductReducer from "./ProductReducer";
@@ -16,7 +16,7 @@ import UserReducer from "./UserReducer";
 import TestimonialReducer from "./TestimonialReducer";
 
 export default combineReducers({
-    MaincategoryStateData: MaincategoryReducer,
+    maincategoryStateData: maincategoryReducer,
     SubcategoryStateData: SubcategoryReducer,
     BrandStateData: BrandReducer,
     ProductStateData: ProductReducer,

@@ -10,7 +10,7 @@ import FormValidator from '../../../Validators/FormValidator'
 import { updateProduct } from "../../../Redux/ActionCreators/ProductActionCreators"
 
 import { getProduct } from "../../../Redux/ActionCreators/ProductActionCreators"
-import { getMaincategory } from "../../../Redux/ActionCreators/MaincategoryActionCreators"
+import { getmaincategory } from "../../../Redux/ActionCreators/maincategoryActionCreators"
 import { getSubcategory } from "../../../Redux/ActionCreators/SubcategoryActionCreators"
 import { getBrand } from "../../../Redux/ActionCreators/BrandActionCreators"
 
@@ -46,7 +46,7 @@ export default function AdminProductUpdatePage() {
     let [show, setShow] = useState(false)
 
     let ProductStateData = useSelector(state => state.ProductStateData)
-    let MaincategoryStateData = useSelector(state => state.MaincategoryStateData)
+    let maincategoryStateData = useSelector(state => state.maincategoryStateData)
     let SubcategoryStateData = useSelector(state => state.SubcategoryStateData)
     let BrandStateData = useSelector(state => state.BrandStateData)
     let dispatch = useDispatch()
@@ -109,7 +109,7 @@ export default function AdminProductUpdatePage() {
             let stockQuantity = Number.parseInt(data.stockQuantity)
             dispatch(updateProduct({
                 ...data,
-                'maincategory': data.maincategory ? data.maincategory : MaincategoryStateData[0].name,
+                'maincategory': data.maincategory ? data.maincategory : maincategoryStateData[0].name,
                 'subcategory': data.subcategory ? data.subcategory : SubcategoryStateData[0].name,
                 'brand': data.brand ? data.brand : BrandStateData[0].name,
                 'basePrice': bp,
@@ -122,7 +122,7 @@ export default function AdminProductUpdatePage() {
             // let formData = new FormData()
             // formData.append("_id", data._id)
             // formData.append("name", data.name)
-            // formData.append("maincategory",  data.maincategory : MaincategoryStateData[0]._id,)
+            // formData.append("maincategory",  data.maincategory : maincategoryStateData[0]._id,)
             // formData.append("subcategory",  data.subcategory : SubcategoryStateData[0]._id,)
             // formData.append("brand",  data.brand : BrandStateData[0]._id,)
             // formData.append("color", data.color)
@@ -142,9 +142,9 @@ export default function AdminProductUpdatePage() {
 
     useEffect(() => {
         (() => {
-            dispatch(getMaincategory())
+            dispatch(getmaincategory())
         })()
-    }, [MaincategoryStateData.length])
+    }, [maincategoryStateData.length])
 
     useEffect(() => {
         (() => {
@@ -191,10 +191,10 @@ export default function AdminProductUpdatePage() {
                                     {show && errorMessage.name ? <p className='text-danger'>{errorMessage.name}</p> : null}
                                 </div>
                                 <div className="col-md-3 mb-3">
-                                    <label>Maincategory*</label>
+                                    <label>maincategory*</label>
                                     <select name="maincategory" value={data.maincategory} onChange={getInputData} className='form-select border-dark' >
                                         {
-                                            MaincategoryStateData.filter(x => x.active).map(item => {
+                                            maincategoryStateData.filter(x => x.active).map(item => {
                                                 return <option key={item.id}>{item.name}</option>
                                                 // return <option key={item._id} value={item._id}>{item.name}</option>
                                             })

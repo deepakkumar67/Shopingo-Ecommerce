@@ -9,20 +9,20 @@ import LatestProduct from '../components/LatestProduct'
 import BrandSlider from '../components/BrandSlider'
 import CategorySlider from '../components/CategorySlider'
 
-import { getMaincategory } from "../Redux/ActionCreators/MaincategoryActionCreators"
+import { getmaincategory } from "../Redux/ActionCreators/maincategoryActionCreators"
 import { getSubcategory } from "../Redux/ActionCreators/SubcategoryActionCreators"
 import { getProduct } from "../Redux/ActionCreators/ProductActionCreators"
 export default function HomePage() {
-    let MaincategoryStateData = useSelector(state => state.MaincategoryStateData)
+    let maincategoryStateData = useSelector(state => state.maincategoryStateData)
     let SubcategoryStateData = useSelector(state => state.SubcategoryStateData)
     let ProductStateData = useSelector(state => state.ProductStateData)
     let dispatch = useDispatch()
 
     useEffect(() => {
         (() => {
-            dispatch(getMaincategory())
+            dispatch(getmaincategory())
         })()
-    }, [MaincategoryStateData.length])
+    }, [maincategoryStateData.length])  
 
     useEffect(() => {
         (() => {
@@ -33,7 +33,7 @@ export default function HomePage() {
     useEffect(() => {
         (() => {
             dispatch(getProduct())
-        })()
+        })()    
     }, [ProductStateData.length])
 
 
@@ -150,16 +150,16 @@ export default function HomePage() {
                     </div>
                 </section>
                 {
-                    MaincategoryStateData.filter(x => x.active).map(item => {
+                    maincategoryStateData.filter(x => x.active).map(item => {
                         return <ProductSlider key={item.id} title={item.name} data={ProductStateData.filter(x => x.maincategory === item.name)} />
 
                     })
                 }
-                <Products data={ProductStateData.filter(x => x.active)} category={MaincategoryStateData.filter(x => x.active)} />
+                <Products data={ProductStateData.filter(x => x.active)} category={maincategoryStateData.filter(x => x.active)} />
                 <Feature />
                 <LatestProduct data={ProductStateData[0]} />
                 <BrandSlider />
-                <CategorySlider title="Maincategory" data={MaincategoryStateData.filter(x => x.active)} />
+                <CategorySlider title="maincategory" data={maincategoryStateData.filter(x => x.active)} />
                 <CategorySlider title="Subcategory" data={SubcategoryStateData.filter(x => x.active)} />
             </div>
         </>

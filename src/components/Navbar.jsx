@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { getMaincategory } from "../Redux/ActionCreators/MaincategoryActionCreators"
+import { getmaincategory } from "../Redux/ActionCreators/maincategoryActionCreators"
 import { getSubcategory } from "../Redux/ActionCreators/SubcategoryActionCreators"
 import { getBrand } from "../Redux/ActionCreators/BrandActionCreators"
 import { deleteCart, getCart } from "../Redux/ActionCreators/CartActionCreators"
 export default function Navbar() {
     let [cart, setCart] = useState([])
-    let MaincategoryStateData = useSelector(state => state.MaincategoryStateData)
+    let maincategoryStateData = useSelector(state => state.maincategoryStateData)
     let SubcategoryStateData = useSelector(state => state.SubcategoryStateData)
     let BrandStateData = useSelector(state => state.BrandStateData)
     let CartStateData = useSelector(state => state.CartStateData)
 
-    let dispatch = useDispatch()
+    let  dispatch = useDispatch()
     let navigate = useNavigate()
     function logout() {
         localStorage.clear()
@@ -36,8 +36,8 @@ export default function Navbar() {
     }
 
     useEffect(() => {
-        dispatch(getMaincategory())
-    }, [MaincategoryStateData.length])
+        dispatch(getmaincategory())
+    }, [maincategoryStateData.length])
 
     useEffect(() => {
         dispatch(getSubcategory())
@@ -84,7 +84,7 @@ export default function Navbar() {
                                                 <h6 className="large-menu-title">Maincategories</h6>
                                                 <ul className="list-unstyled">
                                                     {
-                                                        MaincategoryStateData.filter(x => x.active).map((item) => {
+                                                        maincategoryStateData.filter(x => x.active).map((item) => {
                                                             return <li key={item.id}>
                                                                 <Link to={`/shop?mc=${item.name}`}>{item.name} </Link>
                                                             </li>

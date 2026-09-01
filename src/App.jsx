@@ -22,9 +22,9 @@ import ErrorPage from './pages/ErrorPage'
 import FeaturePage from './pages/FeaturePage'
 import TestimonialPage from './pages/TestimonialPage'
 import AdminHomePage from './pages/Admin/AdminHomePage'
-import AdminMaincategoryPage from './pages/Admin/Maincategory/AdminMaincategoryPage'
-import AdminMaincategoryCreatePage from './pages/Admin/Maincategory/AdminMaincategoryCreatePage'
-import AdminMaincategoryUpdatePage from './pages/Admin/Maincategory/AdminMaincategoryUpdatePage'
+import AdminmaincategoryPage from './pages/Admin/maincategory/AdminmaincategoryPage'
+import AdminmaincategoryCreatePage from './pages/Admin/maincategory/AdminmaincategoryCreatePage'
+import AdminmaincategoryUpdatePage from './pages/Admin/maincategory/AdminmaincategoryUpdatePage'
 import AdminSubcategoryPage from './pages/Admin/Subcategory/AdminSubcategoryPage'
 import AdminSubcategoryCreatePage from './pages/Admin/Subcategory/AdminSubcategoryCreatePage'
 import AdminSubcategoryUpdatePage from './pages/Admin/Subcategory/AdminSubcategoryUpdatePage'
@@ -52,7 +52,7 @@ import AdminUserCreatePage from './pages/Admin/User/AdminUserCreatePage'
 import AdminContactUsShowPage from './pages/Admin/ContactUs/AdminContactUsShowPage'
 import TopScroller from './components/TopScroller'
 
-export default function App() {
+    export default function App() {
     return (
         <BrowserRouter>
             <Navbar />
@@ -91,9 +91,9 @@ export default function App() {
                         <>
                             <Route path='/admin' element={<AdminHomePage />} />
 
-                            <Route path='/admin/maincategory' element={<AdminMaincategoryPage />} />
-                            <Route path='/admin/maincategory/create' element={<AdminMaincategoryCreatePage />} />
-                            <Route path='/admin/maincategory/edit/:id' element={<AdminMaincategoryUpdatePage />} />
+                            <Route path='/admin/maincategory' element={<AdminmaincategoryPage />} />
+                            <Route path='/admin/maincategory/create' element={<AdminmaincategoryCreatePage />} />
+                            <Route path='/admin/maincategory/edit/:id' element={<AdminmaincategoryUpdatePage />} />
 
                             <Route path='/admin/subcategory' element={<AdminSubcategoryPage />} />
                             <Route path='/admin/subcategory/create' element={<AdminSubcategoryCreatePage />} />

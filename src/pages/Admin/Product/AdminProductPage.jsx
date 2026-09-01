@@ -47,7 +47,7 @@ export default function AdminProductPage() {
                                         <tr>
                                             <th>Id</th>
                                             <th>Name</th>
-                                            <th>Maincategory</th>
+                                            <th>maincategory</th>
                                             <th>Subcategory</th>
                                             <th>Brand</th>
                                             <th>Color</th>

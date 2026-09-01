@@ -1,5 +1,5 @@
 import { all } from "redux-saga/effects";
-import MaincategorySagas from "./MaincategorySagas"
+import maincategorySagas from "./maincategorySagas"
 import SubcategorySagas from "./SubcategorySagas"
 import BrandSagas from "./BrandSagas"
 import ProductSagas from "./ProductSagas"
@@ -16,7 +16,7 @@ import TestimonialSagas from "./TestimonialSagas"
 
 export default function* RootSaga() {
     yield all([
-        MaincategorySagas(),
+        maincategorySagas(),
         SubcategorySagas(),
         BrandSagas(),
         ProductSagas(),

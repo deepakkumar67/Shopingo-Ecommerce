@@ -7,8 +7,8 @@ import SideBar from '../../../components/SideBar'
 import ImageValidator from '../../../Validators/ImageValidator'
 import FormValidator from '../../../Validators/FormValidator'
 
-import { getMaincategory, updateMaincategory } from "../../../Redux/ActionCreators/MaincategoryActionCreators"
-export default function AdminMaincategoryUpdatePage() {
+import { getmaincategory, updatemaincategory } from "../../../Redux/ActionCreators/maincategoryActionCreators"
+export default function AdminmaincategoryUpdatePage() {
     let { id } = useParams()
 
     let [data, setData] = useState({
@@ -22,7 +22,7 @@ export default function AdminMaincategoryUpdatePage() {
     })
     let [show, setShow] = useState(false)
 
-    let MaincategoryStateData = useSelector(state => state.MaincategoryStateData)
+    let maincategoryStateData = useSelector(state => state.maincategoryStateData)
     let dispatch = useDispatch()
 
     let navigate = useNavigate()
@@ -51,40 +51,40 @@ export default function AdminMaincategoryUpdatePage() {
         if (error)
             setShow(true)
         else {
-            let item = MaincategoryStateData.find(x => x.id !== id && x.name.toLowerCase() === data.name.toLocaleLowerCase())
+            let item = maincategoryStateData.find(x => x.id !== id && x.name.toLowerCase() === data.name.toLocaleLowerCase())
             if (item) {
                 setErrorMessage((old) => {
                     return {
                         ...old,
-                        'name': "Maincategory With This Name is Already Exist"
+                        'name': "maincategory With This Name is Already Exist"
                     }
                 })
                 setShow(true)
                 return
             }
-            dispatch(updateMaincategory({ ...data }))
+            dispatch(updatemaincategory({ ...data }))
 
             // let formData = new FormData()
             // formData.append("name", data.name)
             // formData.append("_id", data._id)
             // formData.append("pic", data.pic)
             // formData.append("active", data.active)
-            // dispatch(createMaincategory(formData))
+            // dispatch(createmaincategory(formData))
             navigate("/admin/maincategory")
         }
     }
     useEffect(() => {
         (() => {
-            dispatch(getMaincategory())
-            if (MaincategoryStateData.length) {
-                let item = MaincategoryStateData.find(x => x.id === id)
+            dispatch(getmaincategory())
+            if (maincategoryStateData.length) {
+                let item = maincategoryStateData.find(x => x.id === id)
                 if (item)
                     setData({ ...data, ...item })
                 else
                     navigate("/admin/maincategory")
             }
         })()
-    }, [MaincategoryStateData.length])
+    }, [maincategoryStateData.length])
     return (
         <>
             <div className="page-content">
@@ -95,12 +95,12 @@ export default function AdminMaincategoryUpdatePage() {
                             <SideBar />
                         </div>
                         <div className="col-md-9">
-                            <h5 className='bg-dark text-light p-2 text-center'>Maincategory <a href="/admin/maincategory/"><i className='bi bi-arrow-left fs-3 float-end text-light'></i></a></h5>
+                            <h5 className='bg-dark text-light p-2 text-center'>maincategory <a href="/admin/maincategory/"><i className='bi bi-arrow-left fs-3 float-end text-light'></i></a></h5>
                             <form onSubmit={postData}>
                                 <div className="row">
                                     <div className="col-md-12 mb-3">
                                         <label>Name*</label>
-                                        <input type="text" name="name" value={data.name} onChange={getInputData} className={`form-control ${show && errorMessage.name ? 'border-danger' : 'border-dark'}`} placeholder='Maincategory Full Name' />
+                                        <input type="text" name="name" value={data.name} onChange={getInputData} className={`form-control ${show && errorMessage.name ? 'border-danger' : 'border-dark'}`} placeholder='maincategory Full Name' />
                                         {show && errorMessage.name ? <p className='text-danger'>{errorMessage.name}</p> : null}
                                     </div>
                                     <div className="col-md-6 mb-3">

@@ -210,7 +210,7 @@ export default function ProductPage() {
                                         </div>
                                     </div>
                                     <hr />
-                                    <div className="product-price d-flex align-items-center gap-3">
+                                     <div className="product-price d-flex align-items-center gap-3">
                                         <div className="h4 fw-bold">&#8377;{data.finalPrice} </div>
                                         <div className="h5 fw-light text-muted text-decoration-line-through">&#8377;{data.basePrice}</div>
                                         <div className="h4 fw-bold text-danger">({data.discount} % off)</div>
@@ -318,7 +318,7 @@ export default function ProductPage() {
 
                                     <hr className="my-3" />
                                     <div className="customer-reviews">
-                                        <h6 className="fw-bold mb-3">Customer Reviews ({reviewStats.total})</h6>
+                                        <h6 className="fw-bold mb-3">Customer Reviews ({reviewStats.total})</h6>http://localhost:8000/
                                         <div className="reviews-wrapper">
                                             {
                                                 reviews.slice(0, totalReviews).map(item => {

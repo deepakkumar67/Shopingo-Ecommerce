@@ -1,24 +1,24 @@
-import { CREATE_MAINCATEGORY, DELETE_MAINCATEGORY, GET_MAINCATEGORY, UPDATE_MAINCATEGORY } from "../Constants"
-export function createMaincategory(data) {
+import { CREATE_maincategory, DELETE_maincategory, GET_maincategory, UPDATE_maincategory } from "../Constants"
+export function createmaincategory(data) {
     return {
-        type: CREATE_MAINCATEGORY,
+        type: CREATE_maincategory,
         payload: data
     }
 }
-export function getMaincategory() {
+export function getmaincategory() {
     return {
-        type: GET_MAINCATEGORY,
+        type: GET_maincategory,
     }
 }
-export function updateMaincategory(data) {
+export function updatemaincategory(data) {
     return {
-        type: UPDATE_MAINCATEGORY,
+        type: UPDATE_maincategory,
         payload: data
     }
 }
-export function deleteMaincategory(data) {
+export function deletemaincategory(data) {
     return {
-        type: DELETE_MAINCATEGORY,
+        type: DELETE_maincategory,
         payload: data
     }
 }

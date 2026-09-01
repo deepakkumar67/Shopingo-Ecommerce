@@ -11,38 +11,38 @@ export default function Footer() {
     let dispatch = useDispatch()
     
     useEffect(() => {
-        (() => {
-            dispatch(getSetting())
-            if (SettingStateData.length) {
-                setData({
-                    map1: SettingStateData[0].map1 ? SettingStateData[0].map1 : "",
-                    address: SettingStateData[0].address ? SettingStateData[0].address : "",
-                    email: SettingStateData[0].email ? SettingStateData[0].email : "",
-                    phone: SettingStateData[0].phone ? SettingStateData[0].phone : "",
-                    whatsapp: SettingStateData[0].whatsapp ? SettingStateData[0].whatsapp : "",
-                    facebook: SettingStateData[0].facebook ? SettingStateData[0].facebook : "",
-                    youtube: SettingStateData[0].youtube ? SettingStateData[0].youtube : "",
-                    instagram: SettingStateData[0].instagram ? SettingStateData[0].instagram : "",
-                    linkedin: SettingStateData[0].linkedin ? SettingStateData[0].linkedin : "",
-                    twitter: SettingStateData[0].twitter ? SettingStateData[0].twitter : "",
-                })
-            }
-            else {
-                setData({
-                    map1: import.meta.env.VITE_SITE_MAP1,
-                    address: import.meta.env.VITE_SITE_ADDRESS,
-                    email: import.meta.env.VITE_SITE_EMAIL,
-                    phone: import.meta.env.VITE_SITE_PHONE,
-                    whatsapp: import.meta.env.VITE_SITE_WHATSAPP,
-                    facebook: import.meta.env.VITE_SITE_FACEBOOK,
-                    linkedin: import.meta.env.VITE_SITE_LINKEDIN,
-                    twitter: import.meta.env.VITE_SITE_TWITTER,
-                    instagram: import.meta.env.VITE_SITE_INSTAGRAM,
-                    youtube: import.meta.env.VITE_SITE_YOUTUBE,
-                })
-            }
-        })()
-    }, [SettingStateData.length])
+    dispatch(getSetting())
+
+    if (SettingStateData.length) {
+        setData({
+            map1: SettingStateData[0].map1 || import.meta.env.VITE_SITE_MAP1,
+            address: SettingStateData[0].address || import.meta.env.VITE_SITE_ADDRESS,
+            email: SettingStateData[0].email || import.meta.env.VITE_SITE_EMAIL,
+            phone: SettingStateData[0].phone || import.meta.env.VITE_SITE_PHONE,
+            whatsapp: SettingStateData[0].whatsapp || import.meta.env.VITE_SITE_WHATSAPP,
+
+            facebook: import.meta.env.VITE_SITE_FACEBOOK,
+            youtube: import.meta.env.VITE_SITE_YOUTUBE,
+            instagram: import.meta.env.VITE_SITE_INSTAGRAM,
+            linkedin: import.meta.env.VITE_SITE_LINKEDIN,
+            twitter: import.meta.env.VITE_SITE_TWITTER,
+        })
+    } else {
+        setData({
+            map1: import.meta.env.VITE_SITE_MAP1,
+            address: import.meta.env.VITE_SITE_ADDRESS,
+            email: import.meta.env.VITE_SITE_EMAIL,
+            phone: import.meta.env.VITE_SITE_PHONE,
+            whatsapp: import.meta.env.VITE_SITE_WHATSAPP,
+
+            facebook: import.meta.env.VITE_SITE_FACEBOOK,
+            linkedin: import.meta.env.VITE_SITE_LINKEDIN,
+            twitter: import.meta.env.VITE_SITE_TWITTER,
+            instagram: import.meta.env.VITE_SITE_INSTAGRAM,
+            youtube: import.meta.env.VITE_SITE_YOUTUBE,
+        })
+    }
+}, [SettingStateData.length])
     return (
         <>
             <NewsLetter />
@@ -57,12 +57,48 @@ export default function Footer() {
                             </div>
                             <h5 className="text-light mt-4 fw-bold">Follow Us</h5>
                             <div className="social-link d-flex align-items-center gap-2">
-                                <Link to={data.facebook} target='_blank' rel='noreferror'><i className="text-light me-2 fs-4  bi bi-facebook"></i></Link>
-                                <Link to={data.twitter} target='_blank' rel='noreferror'><i className="text-light me-2 fs-4  bi bi-twitter"></i></Link>
-                                <Link to={data.linkedin} target='_blank' rel='noreferror'><i className="text-light me-2 fs-4  bi bi-linkedin"></i></Link>
-                                <Link to={data.youtube} target='_blank' rel='noreferror'><i className="text-light me-2 fs-4  bi bi-youtube"></i></Link>
-                                <Link to={data.instagram} target='_blank' rel='noreferror'><i className="text-light me-2 fs-4  bi bi-instagram"></i></Link>
-                            </div>
+
+    <a
+        href={data.facebook}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <i className="text-light me-2 fs-4 bi bi-facebook"></i>
+    </a>
+
+    <a
+        href={data.twitter}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <i className="text-light me-2 fs-4 bi bi-twitter"></i>
+    </a>
+
+    <a
+        href={data.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <i className="text-light me-2 fs-4 bi bi-linkedin"></i>
+    </a>
+
+    <a
+        href={data.youtube}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <i className="text-light me-2 fs-4 bi bi-youtube"></i>
+    </a>
+
+    <a
+        href={data.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <i className="text-light me-2 fs-4 bi bi-instagram"></i>
+    </a>
+
+</div>
                         </div>
                         <div className="col">
                             <div className="footer-widget-7">

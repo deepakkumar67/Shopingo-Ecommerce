@@ -54,7 +54,7 @@ export default function CategorySlider({ title, data }) {
                                             <div className="col">
                                                 <div className="p-3 border rounded brand-box">
                                                     <div className="d-flex align-items-center">
-                                                        <Link to={`/shop?${title==="Maincategory"?"mc=":"sc="} ${item.name}`} >
+                                                        <Link to={`/shop?${title==="maincategory"?"mc=":"sc="} ${item.name}`} >
                                                             <img src={`${import.meta.env.VITE_SITE_IMAGE_SERVER}/${item.pic}`} style={{ height: 300, width: "100%" }} alt="" />
                                                         </Link>
                                                     </div>

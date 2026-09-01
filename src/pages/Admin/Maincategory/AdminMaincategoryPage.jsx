@@ -8,19 +8,19 @@ import 'datatables.net';
 
 import SideBar from '../../../components/SideBar'
 
-import { getMaincategory, deleteMaincategory } from "../../../Redux/ActionCreators/MaincategoryActionCreators"
-export default function AdminMaincategoryPage() {
-    let MaincategoryStateData = useSelector(state => state.MaincategoryStateData)
+import { getmaincategory, deletemaincategory } from "../../../Redux/ActionCreators/maincategoryActionCreators"
+export default function AdminmaincategoryPage() {
+    let maincategoryStateData = useSelector(state => state.maincategoryStateData)
     let dispatch = useDispatch()
 
     function deleteRecord(id) {
         if (confirm("Are You Sure to Delete that Item : ")) {
-            dispatch(deleteMaincategory({ id: id }))
+            dispatch(deletemaincategory({ id: id }))
             getAPIData()
         }
     }
     function getAPIData() {
-        dispatch(getMaincategory())
+        dispatch(getmaincategory())
         let time = setTimeout(() => {
             $('#DataTable').DataTable()
         }, 500)
@@ -29,7 +29,7 @@ export default function AdminMaincategoryPage() {
     useEffect(() => {
         let time = getAPIData()
         return () => clearTimeout(time)
-    }, [MaincategoryStateData.length])
+    }, [maincategoryStateData.length])
     return (
         <>
             <div className="page-content">
@@ -40,7 +40,7 @@ export default function AdminMaincategoryPage() {
                             <SideBar />
                         </div>
                         <div className="col-md-9">
-                            <h5 className='bg-dark text-light p-2 text-center'>Maincategory <Link to="/admin/maincategory/create"><i className='bi bi-plus fs-3 float-end text-light'></i></Link></h5>
+                            <h5 className='bg-dark text-light p-2 text-center'>maincategory <Link to="/admin/maincategory/create"><i className='bi bi-plus fs-3 float-end text-light'></i></Link></h5>
                             <div className="table-responsive">
                                 <table id='DataTable' className='table table-bordered'>
                                     <thead>
@@ -55,7 +55,7 @@ export default function AdminMaincategoryPage() {
                                     </thead>
                                     <tbody>
                                         {
-                                            MaincategoryStateData.map(item => {
+                                            maincategoryStateData.map(item => {
                                                 return <tr key={item.id}>
                                                     <td>{item.id}</td>
                                                     <td>{item.name}</td>

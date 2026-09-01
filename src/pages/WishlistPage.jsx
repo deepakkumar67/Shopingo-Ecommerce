@@ -52,7 +52,7 @@ export default function WishlistPage() {
                             </div>
                             <div className="ms-auto">
                                 <Link to="/shop" className="btn btn-dark btn-ecomm">Continue Shopping</Link>
-                            </div>
+                            </div>npm 
                         </div>
 
                         <div className="similar-products">
