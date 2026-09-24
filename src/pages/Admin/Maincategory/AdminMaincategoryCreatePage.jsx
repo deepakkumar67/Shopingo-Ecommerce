@@ -10,7 +10,7 @@ import FormValidator from '../../../Validators/FormValidator'
 import { getmaincategory, createmaincategory } from "../../../Redux/ActionCreators/maincategoryActionCreators"
 
 
-export default function AdminMaincategoryCreatePage() {
+export default function AdminmaincategoryCreatePage() {
 
     let [data, setData] = useState({
         name: "",

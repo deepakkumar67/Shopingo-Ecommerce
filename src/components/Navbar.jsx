@@ -37,7 +37,8 @@ export default function Navbar() {
 
     useEffect(() => {
         dispatch(getmaincategory())
-    }, [maincategoryStateData.length])
+    }, [maincategoryStateData.length
+    ])
 
     useEffect(() => {
         dispatch(getSubcategory())

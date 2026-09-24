@@ -8,7 +8,7 @@ import ImageValidator from '../../../Validators/ImageValidator'
 import FormValidator from '../../../Validators/FormValidator'
 
 import { getmaincategory, updatemaincategory } from "../../../Redux/ActionCreators/maincategoryActionCreators"
-export default function AdminMaincategoryUpdatePage() {
+export default function AdminmaincategoryUpdatePage() {
     let { id } = useParams()
 
     let [data, setData] = useState({
