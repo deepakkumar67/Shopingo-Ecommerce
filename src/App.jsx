@@ -22,7 +22,7 @@ import ErrorPage from './pages/ErrorPage'
 import FeaturePage from './pages/FeaturePage'
 import TestimonialPage from './pages/TestimonialPage'
 import AdminHomePage from './pages/Admin/AdminHomePage'
-import AdminmaincategoryPage from './pages/Admin/maincategory/AdminmaincategoryPage'
+// import AdminmaincategoryPage from './pages/Admin/maincategory/AdminmaincategoryPage'
 import AdminmaincategoryCreatePage from './pages/Admin/maincategory/AdminmaincategoryCreatePage'
 import AdminmaincategoryUpdatePage from './pages/Admin/maincategory/AdminmaincategoryUpdatePage'
 import AdminSubcategoryPage from './pages/Admin/Subcategory/AdminSubcategoryPage'
@@ -91,7 +91,7 @@ import TopScroller from './components/TopScroller'
                         <>
                             <Route path='/admin' element={<AdminHomePage />} />
 
-                            <Route path='/admin/maincategory' element={<AdminmaincategoryPage />} />
+                            {/* <Route path='/admin/maincategory' element={<AdminmaincategoryPage />} /> */}
                             <Route path='/admin/maincategory/create' element={<AdminmaincategoryCreatePage />} />
                             <Route path='/admin/maincategory/edit/:id' element={<AdminmaincategoryUpdatePage />} />
 
